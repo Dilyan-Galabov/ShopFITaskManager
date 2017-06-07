@@ -44,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Initializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +64,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ShopFI.Common\ShopFI.Common.csproj">
+      <Project>{77787387-DB2D-4E8C-8BDA-A0A9F6B7E342}</Project>
+      <Name>ShopFI.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ShopFI.Entities\ShopFI.Entities.csproj">
       <Project>{34EE12ED-011C-4A52-ADE8-DBCAF437F77B}</Project>
       <Name>ShopFI.Entities</Name>

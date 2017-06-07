@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ShopFI.Gateway.Models;
 using ShopFI.Entities.Models;
+using ShopFI.Gateway.Models.AccountViewModels;
 
 namespace ShopFI.Gateway.Controllers
 {
