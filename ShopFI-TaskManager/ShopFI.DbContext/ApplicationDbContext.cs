@@ -11,7 +11,8 @@ namespace ShopFI.DbContext
     public class ApplicationDbContext : IdentityDbContext<User>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+           // : base("ShopFILocalConnection", throwIfV1Schema: false)
+            : base("ShopFIConnection", throwIfV1Schema: false)
         {
         }
 
