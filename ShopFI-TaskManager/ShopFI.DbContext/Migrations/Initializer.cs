@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using ShopFI.Common;
+using ShopFI.Entities.Common;
 using ShopFI.Entities.Models;
 using System;
+using System.Data.Entity.Migrations;
 using System.Linq;
 
 namespace ShopFI.DbContext.Migrations
@@ -50,5 +52,27 @@ namespace ShopFI.DbContext.Migrations
             user.Roles.Add(new IdentityUserRole { RoleId = userRoleAdmin.Id, UserId = user.Id });
             context.Users.Add(user);
         }
+
+
+
+        internal static void SeedCategories(ApplicationDbContext context)
+        {
+            context.Categories.AddOrUpdate
+                (
+                    c => c.Name,
+                    new Category("Cars"),
+                    new Category("Sport/Hobbies/Books"),
+                    new Category("Animals"),
+                    new Category("Home and garden"),
+                    new Category("Mode"),
+                    new Category("For baby and child"),
+                    new Category("Work"),
+                    new Category("Electronics")
+                );
+        }
+
+
+
+
     }
 }

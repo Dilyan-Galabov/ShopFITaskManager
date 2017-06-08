@@ -23,7 +23,8 @@ namespace ShopFI.DbContext.Migrations
             {
                 Initializer.SeedUsers(context);
             }
-            
+
+            Initializer.SeedCategories(context);                
         }
     }
 }
