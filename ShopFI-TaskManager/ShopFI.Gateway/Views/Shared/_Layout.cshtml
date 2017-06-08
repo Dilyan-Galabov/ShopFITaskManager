@@ -32,6 +32,15 @@
                    {
                     <li>@Html.ActionLink("Add New AD", "Create", "Items")</li>
                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("Manage all Advertisements", "Index", "Items")</li>
+                        }
+                    }
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

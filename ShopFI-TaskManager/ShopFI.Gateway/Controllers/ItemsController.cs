@@ -14,6 +14,7 @@ using System.Data.Entity.Validation;
 
 namespace ShopFI.Gateway.Controllers
 {
+    
     [Authorize]
     public class ItemsController : Controller
     {

@@ -53,10 +53,30 @@
                         <p class="attribute">Performer :  @item.Performer.UserName</p>
                         <p class="data">Date :  @item.DateCreated</p>
                         <hr />
-                        <p class="attribute">                       
-                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })             
+                        <p class="attribute">      
+                           @if (ViewContext.HttpContext.User.IsInRole("Admin"))
+                           {
+                               <table>
+                                   <tr>
+                                       @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                       @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                       @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                   </tr>
+                               </table>
+                            
+
+                           }
+                           else
+                           {
+                               <table>
+                                   <tr>
+                                       @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                       @Html.ActionLink("Details", "Details", new { id = item.Id })
+                                   </tr>
+                               </table>
+          
+                           }
+
                         </p>
                     </div>
                 </div>
