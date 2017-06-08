@@ -117,11 +117,12 @@ namespace ShopFI.Gateway.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(item).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", item.CategoryId);
+
+            db.Entry(item).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+             }
+             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", item.CategoryId);
             ViewBag.PerformerId = new SelectList(db.Users, "Id", "Email", item.PerformerId);
             return View(item);
         }
