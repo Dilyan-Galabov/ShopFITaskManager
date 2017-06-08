@@ -61,6 +61,7 @@ namespace ShopFI.Gateway.Controllers
                     User.Identity.GetUserId(),
                     entry.CategoryId,
                     entry.Title,
+                    entry.Price,
                     entry.Description,
                     entry.ImgUrl,
                     entry.PhoneNumber,
@@ -83,8 +84,6 @@ namespace ShopFI.Gateway.Controllers
                         }
                     }
                 }
-                 //db.Items.Add(item);
-                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -96,6 +95,7 @@ namespace ShopFI.Gateway.Controllers
         // GET: Items/Edit/5
         public ActionResult Edit(string id)
         {
+           
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -112,8 +112,8 @@ namespace ShopFI.Gateway.Controllers
 
         // POST: Items/Edit/5      
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Description,ImgUrl,PhoneNumber,PerformerId,CategoryId,DateCreated,DateModified")] Item item)
+       
+        public ActionResult Edit([Bind(Include = "Id,Title,Price,Description,ImgUrl,PhoneNumber,PerformerId,CategoryId,DateCreated,DateModified")]Item item)
         {
             if (ModelState.IsValid)
             {

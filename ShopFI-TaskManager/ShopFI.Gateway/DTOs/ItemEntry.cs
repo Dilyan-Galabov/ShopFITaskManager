@@ -9,6 +9,11 @@ namespace ShopFI.Gateway.DTOs
         [StringLength(50)]
         public string Title { get; set; }
 
+
+        [Required]
+        [Display(Name = "Price")]
+        public string Price { get; set; }
+
         [Required]
         [StringLength(300)]
         [DataType(DataType.MultilineText)]

@@ -28,6 +28,7 @@ namespace ShopFI.Entities.Common
         public string Id { get; set; }
 
         [Required]
+        [Display(Name = "Category")]
         public string Name { get; set; }
 
     }

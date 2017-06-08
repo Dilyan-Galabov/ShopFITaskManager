@@ -14,7 +14,7 @@ namespace ShopFI.Entities.Models
         public Item() { }
 
 
-        public Item(string performerId, string categoryId, string title, string description,string imgUrl,
+        public Item(string performerId, string categoryId, string title,string price, string description,string imgUrl,
             string phoneNumber,DateTime dateCreated,DateTime? dateModified,CustomId id = null)
             :this(id)
         {
@@ -22,6 +22,7 @@ namespace ShopFI.Entities.Models
             this.CategoryId = categoryId;
             this.Title = title;
             this.Description = description;
+            this.Price = price;
             this.ImgUrl = imgUrl;
             this.PhoneNumber = phoneNumber;        
             this.DateCreated = dateCreated;
@@ -51,6 +52,10 @@ namespace ShopFI.Entities.Models
         public string PhoneNumber { get; set; }
 
 
+       [Required]
+       public string Price { get; set; }
+
+
         [Required]
         public string PerformerId { get; set; }
 
@@ -63,6 +68,8 @@ namespace ShopFI.Entities.Models
 
 
         [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateCreated { get; set; }
 
         

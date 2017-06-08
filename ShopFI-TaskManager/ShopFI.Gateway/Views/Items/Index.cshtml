@@ -4,73 +4,66 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<style>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Category.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Performer.UserName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImgUrl)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateCreated)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateModified)
-        </th>
-        <th></th>
-    </tr>
+    h1{
+        text-align:center;
+        font-family:Algerian;
+    }
+    body{
+        font-family:Algerian;
+    }
+    .attribute {
+        font-weight:bold;
+      
+    }
+    .viewItems {
+        margin-top:20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-color:#4198f7;
+        border-style:ridge;
+        text-align:center;
+    }
+    .imgItem {
+        width: 400px;
+        height: 400px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 12px;
+    }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Performer.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @*@Html.DisplayFor(modelItem => item.ImgUrl)*@
-            <img src="@item.ImgUrl" alt ="No picture", style="width:100%"/>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateCreated)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateModified)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+</style>
 
-</table>
+<h1>Advertisments -->  @Html.ActionLink("Create AD", "Create")</h1>
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div class="view">
+            <div class="viewItems">
+                <img class="imgItem" src="@item.ImgUrl" alt="@item.Title" />
+                <div class="seconcontainer">
+                    <div class="inner">
+                        <p class="attribute">
+                            @Html.DisplayNameFor(model => model.Category.Name) :
+                            @Html.DisplayFor(model => @item.Category.Name)                       
+                        <p class="attribute">Title :  @item.Title</p>
+                        <p class="attribute">Price :  @item.Price</p>
+                        <p class="attribute">Decription :  @item.Description</p>
+                        <p class="attribute">Performer :  @item.Performer.UserName</p>
+                        <p class="data">Date :  @item.DateCreated</p>
+                        <hr />
+                        <p class="attribute">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+

@@ -1,4 +1,16 @@
-﻿@model ShopFI.Gateway.Models.ManageViewModels.IndexViewModel
+﻿
+
+<style>
+    body{
+        font-family:Algerian;
+    }
+    h2 {
+        font-family: Algerian;
+        text-align: center;
+    }
+</style>
+
+
 @{
     ViewBag.Title = "Manage";
 }
@@ -57,11 +69,11 @@
                 }
             </dd>
         *@
-        <dt>Two-Factor Authentication:</dt>
+
+        @*<dt> Welcome to your panel.</dt>*@
         <dd>
-            <p>
-                There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                for details on setting up this ASP.NET application to support two-factor authentication.
+            <p style="text-align:left;font-size:25px">
+               Welcome to your panel.
             </p>
             @*@if (Model.TwoFactor)
                 {
